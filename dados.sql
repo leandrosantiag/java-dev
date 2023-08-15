@@ -1,8 +1,34 @@
--- Active: 1691183780735@@127.0.0.1@5432@postgres
+-- Active: 1692133375612@@127.0.0.1@5432@postgres
 -- Script PostgreSQL com cadastro de cidades e estados do país, conforme IBGE.
 -- Adaptado de https://www.ricardoarrigoni.com.br/cidades-brasil-lista-de-cidades-brasileiras-em-sql/
 -- Área por estado: https://pt.wikipedia.org/wiki/Lista_de_unidades_federativas_do_Brasil_por_área
 -- População por estado (prévio censo 2022): https://pt.wikipedia.org/wiki/Lista_de_unidades_federativas_do_Brasil_por_população
+
+
+drop table if exists transacoes;
+
+create table transacoes(
+    id serial not null primary key,
+    cliente varchar(120) not null,
+    valor float not null default 0,
+    moeda varchar(100) not null,
+    tipo char not null
+);
+
+
+
+
+
+
+drop table if exists alunos;
+
+create table alunos (
+  matricula serial not null primary key,
+  nome varchar(255) not null,
+  nota1 float not null default 0,
+  nota2 float not null default 0,
+  nota3 float not null default 0
+);
 
 drop table if exists item_venda;
 drop table if exists venda;
